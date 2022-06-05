@@ -7,14 +7,22 @@ on:
 jobs:
 
   build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 17.x, 18.x]
+
     steps:
 
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Create development .env
         run: cp .env.development .env.local
