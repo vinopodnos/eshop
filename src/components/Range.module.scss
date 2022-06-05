@@ -1,0 +1,105 @@
+@use "../variables" as v;
+
+.range {
+	--value-a: 25;
+	--value-b: 75;
+	--min: 0;
+	--max: 100;
+
+	--size: calc(var(--max) - var(--min));
+
+	// From this notation it is difficult to guess its meaning.
+	//
+	// Briefly:
+	//
+	// First, let's declare variables and their meaning:
+	//   $min - minimum allowed value
+	//   $max - maximum allowed value
+	//   $size - difference between minimum and maximum values
+	//   $val - current value
+	//
+	// The percentage position from the left is calculated as follows:
+	//
+	//   1. from the minimum value and the current value we get its position
+	//      on the numerical axis
+	//
+	//      $curpos = $val - $min
+	//
+	//   2. use the clamp() function to get either the current position
+	//      (if $curpos is in the correct interval), zero (if $curpos is
+	//      smaller), or $size (if $curpos is larger)
+	//
+	//      $curpos = clamp(0, $curpos, $size)
+	//
+	//   3. we get the percentage position
+	//
+	//      $pos = ($curpos / $size) * 100%
+	//
+	// I hope this explanation helps.
+
+	--pos-a: calc(
+		clamp(0, calc(var(--value-a) - var(--min)), var(--size)) / var(--size) *
+			100%
+	);
+	--pos-b: calc(
+		clamp(0, calc(var(--value-b) - var(--min)), var(--size)) / var(--size) *
+			100%
+	);
+
+	display: flex;
+	background-color: v.clrl("dark", 85%);
+	border: 1px solid v.clrl("dark", 75%);
+	height: 5px;
+	border-radius: 2.5px;
+	margin: 10px;
+	align-items: center;
+	position: relative;
+	isolation: isolate;
+	touch-action: auto;
+	user-select: none;
+}
+
+.handler-a,
+.handler-b {
+	height: 700%;
+	aspect-ratio: 1;
+	transform: translateX(-50%);
+	background-color: v.clrl("dark", 55%);
+	border: 1px solid v.clrl("dark", 50%);
+	border-radius: 50%;
+	position: absolute;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.handler-a {
+	left: var(--pos-a);
+}
+
+.handler-b {
+	left: var(--pos-b);
+}
+
+.line {
+	position: absolute;
+	left: var(--pos-a);
+	right: calc(100% - var(--pos-b));
+	height: calc(100% + 2px);
+	background-color: rgb(v.clr("primary"), 25%);
+	z-index: -1;
+}
+
+.element input {
+	position: absolute;
+	top: -200vh;
+	left: -200vw;
+}
+
+.handler-a:hover,
+.handler-a:active,
+.handler-b:hover,
+.handler-b:active,
+.element input:nth-child(1):focus + input + .range .handler-a,
+.element input:nth-child(2):focus + .range .handler-b {
+	background-color: v.clrl("primary");
+	border-color: v.clrl("primary", 5%);
+}

@@ -1,0 +1,24 @@
+@use "sass:map";
+
+// colors
+
+$colors: (
+	"primary": #d71f26,
+	"accent": #c29747,
+	"success": #69d629,
+	"info": #13d6b5,
+	"dark": #000000,
+	"light": #ffffff,
+);
+
+@function clr($name) {
+	@return map.get($colors, $name);
+}
+
+@function clrl($name, $lighten: 20%) {
+	@return lighten(clr($name), $lighten);
+}
+
+@function clrd($name, $darken: 20%) {
+	@return darken(clr($name), $darken);
+}
