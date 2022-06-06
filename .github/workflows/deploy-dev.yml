@@ -1,37 +1,35 @@
 name: Deploy to Development Environment
 
 on:
-  push:
-    branches: [main]
+    push:
+        branches: [main]
 
 jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository code
+              uses: actions/checkout@v3
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
+            - name: Install dependencies
+              uses: bahmutov/npm-install@v1
 
-      - name: Check out repository code
-        uses: actions/checkout@v3
+            - name: Create development .env
+              run: cp .env.development .env.local
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+            - name: Set base domain do development environment
+              run: echo "PUBLIC_URL=/website" >> .env.local
 
-      - name: Create development .env
-        run: cp .env.development .env.local
+            - name: Build the library
+              run: npm run build
 
-      - name: Set base domain do development environment
-	    run: echo "PUBLIC_URL=/website" >> .env.local
+            - name: Create .nojekyll
+              run: touch build/.nojekyll
 
-      - name: Build the library
-        run: npm run build
-
-      - name: Create .nojekyll
-        run: touch build/.nojekyll
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-Deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
-          CLEAN: true
+            - name: Deploy to GitHub Pages
+              uses: JamesIves/github-pages-Deploy-action@3.7.1
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: build
+                  CLEAN: true
