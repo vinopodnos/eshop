@@ -37,14 +37,14 @@
 	//
 	// I hope this explanation helps.
 
-	--pos-a: calc(
-		clamp(0, calc(var(--value-a) - var(--min)), var(--size)) / var(--size) *
-			100%
-	);
-	--pos-b: calc(
-		clamp(0, calc(var(--value-b) - var(--min)), var(--size)) / var(--size) *
-			100%
-	);
+	--pos-a-curpos: calc(var(--value-a) - var(--min));
+	--pos-b-curpos: calc(var(--value-b) - var(--min));
+
+	--pos-a-clamp: clamp(0, var(--pos-a-curpos), var(--size));
+	--pos-b-clamp: clamp(0, var(--pos-b-curpos), var(--size));
+
+	--pos-a: calc(var(--pos-a-clamp) / var(--size) * 100%);
+	--pos-b: calc(var(--pos-b-clamp) / var(--size) * 100%);
 
 	display: flex;
 	background-color: v.clrl("dark", 85%);
