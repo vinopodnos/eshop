@@ -3,40 +3,20 @@ name: Deploy to Development Environment
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 17.x, 18.x]
-
     steps:
 
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-
       - name: Create development .env
         run: cp .env.development .env.local
 
-      - name: Build the library
-        run: npm run build
-
-      - name: Create .nojekyll
-        run: touch build/.nojekyll
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-Deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
-          CLEAN: true
+      - name: Deploy react app to github pages
+        uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
