@@ -8,11 +8,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./i18n";
-import Currencies, { convert } from "./currency";
+import Currencies from "./currency";
 
 Currencies();
-
-convert("PHP", 1).then((v) => console.log(v));
 
 initializeApp({
 	apiKey: process.env.REACT_APP_API_KEY,
