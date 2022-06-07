@@ -20,14 +20,13 @@ jobs:
             - name: Build the library
               run: npm run build
 
-            - name: Create .nojekyll
-              run: touch build/.nojekyll
-
             - name: Deploy to GitHub Pages
-              uses: JamesIves/github-pages-Deploy-action@3.7.1
+              if: success()
+              uses: crazy-max/ghaction-github-pages@v3
               with:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  REPOSITORY_NAME: vinopodnos/vinopodnos.github.io
-                  BRANCH: gh-pages
-                  FOLDER: build
-                  CLEAN: true
+                repo: vinopodnos/vinopodnos.github.io
+                build_dir: build
+                jekyll: false
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GH_PAT: ${{ secrets.GH_PAT }}
