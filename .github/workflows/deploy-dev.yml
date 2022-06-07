@@ -29,7 +29,8 @@ jobs:
             - name: Deploy to GitHub Pages
               uses: JamesIves/github-pages-Deploy-action@3.7.1
               with:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  BRANCH: gh-pages
-                  FOLDER: build
-                  CLEAN: true
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  repository-name: vinopodnos/vinopodnos.github.io
+                  branch: gh-pages
+                  folder: build
+                  clean: true
