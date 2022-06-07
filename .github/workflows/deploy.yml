@@ -1,0 +1,28 @@
+name: Deploy to Development Environment
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository code
+              uses: actions/checkout@v3
+
+            - name: Install dependencies
+              uses: bahmutov/npm-install@v1
+
+            - name: Build the library
+              run: npm run build
+
+            - name: Deploy to GitHub Pages
+              if: success()
+              uses: crazy-max/ghaction-github-pages@v3
+              with:
+                build_dir: build
+                jekyll: false
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GH_PAT: ${{ secrets.GH_PAT }}
