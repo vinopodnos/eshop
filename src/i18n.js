@@ -23,12 +23,18 @@ i18next
 
 					// navbar
 					"navbar-home": "Go to Home Page",
+					"navbar-user": "User Section",
+					"navbar-cart": "Cart",
 
 					// footer
 					"footer-phone": "Phone Number",
 					"footer-email": "E-mail",
 					"footer-location": "Where you can find us?",
 					"footer-github": "Source code on GitHub",
+
+					// Home
+					"home-featured": "Featured",
+					"home-show-all": "Show All",
 
 					// 404
 					"not-found": "This page was not found! 🙁️",
@@ -49,12 +55,18 @@ i18next
 
 					// navbar
 					"navbar-home": "Přejít na domovskou stránku",
+					"navbar-user": "Uživatelská sekce",
+					"navbar-cart": "Košík",
 
 					// footer
 					"footer-phone": "Telefonní číslo",
 					"footer-email": "E-mail",
 					"footer-location": "Kde nás najdete?",
 					"footer-github": "Zdrojový kód na GitHubu",
+
+					// Home
+					"home-featured": "Doporučujeme",
+					"home-show-all": "Zobrazit vše",
 
 					// 404
 					"not-found": "Tato stránka nebyla nalezena! 🙁️",
