@@ -17,9 +17,10 @@ i18next
 					"product-prev-price": "previous price",
 					"product-add-to-cart": "Add to Cart",
 					"product-more-info": "More Info",
+					"not-found": "This page was not found! 🙁️",
 				},
 			},
-			de: {
+			cs: {
 				translation: {
 					"currency-code": "CZK",
 					"currency-str": "{price} Kč",
@@ -28,6 +29,7 @@ i18next
 					"product-prev-price": "předchozí cena",
 					"product-add-to-cart": "Přidat do košíku",
 					"product-more-info": "Více informací",
+					"not-found": "Tato stránka nebyla nalezena! 🙁️",
 				},
 			},
 		},
