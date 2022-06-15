@@ -21,8 +21,8 @@ jobs:
               if: success()
               uses: crazy-max/ghaction-github-pages@v3
               with:
-              build_dir: build
-              jekyll: false
+                build_dir: build
+                jekyll: false
               env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              GH_PAT: ${{ secrets.GH_PAT }}
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                GH_PAT: ${{ secrets.GH_PAT }}
