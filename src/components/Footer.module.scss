@@ -1,0 +1,62 @@
+@use "../variables" as v;
+
+.footer {
+	margin-block-start: auto;
+	color: white;
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	section {
+		text-align: center;
+		font-weight: 600;
+		padding-inline: 5rem;
+
+		@include v.mq-max("medium") {
+			padding-inline: 2rem;
+		}
+	}
+}
+
+.address {
+	padding-block: 2rem;
+	background-color: v.clr("accent");
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.copyright {
+	padding-block: 1.5rem;
+	background-color: v.clrl("dark", 15%);
+	display: flex;
+	gap: 1rem;
+
+	@include v.mq-min("medium") {
+		:first-child {
+			margin-inline-end: auto;
+		}
+	}
+
+	@include v.mq-max("medium") {
+		flex-direction: column;
+
+		:first-child {
+			order: 3;
+		}
+	}
+}
+
+.github {
+	padding-block: 0.8rem;
+	font-size: 0.8rem;
+	font-weight: 400 !important;
+	background-color: v.clr("dark");
+	vertical-align: middle;
+}

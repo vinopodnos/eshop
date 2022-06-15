@@ -5,9 +5,9 @@
 	max-width: 20rem;
 	max-height: fit-content;
 	box-shadow: 0 0 5px rgb(v.clr("dark"), 20%);
-	overflow: hidden;
 	border-radius: 5px;
 	border-block-start: 5px solid var(--line-color);
+	background-color: v.clr("light");
 
 	.content {
 		position: relative;
@@ -75,6 +75,7 @@
 		a:first-child {
 			color: v.clr("light");
 			background-color: v.clr("primary");
+			border-bottom-left-radius: 5px;
 			&:hover {
 				background-color: v.clrd("primary", 10%);
 			}
@@ -83,6 +84,7 @@
 		a:last-child {
 			color: v.clr("dark");
 			background-color: rgb(v.clr("dark"), 15%);
+			border-bottom-right-radius: 5px;
 			&:hover {
 				background-color: rgb(v.clr("dark"), 25%);
 			}

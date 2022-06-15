@@ -1,5 +1,14 @@
+@use "variables" as v;
+
 body {
 	margin: 0;
+}
+
+body > div {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: v.clrd("light", 3%);
 }
 
 *,
@@ -7,4 +16,5 @@ body {
 *::after {
 	box-sizing: border-box;
 	font-family: "Inter", sans-serif;
+	line-height: 1.5;
 }

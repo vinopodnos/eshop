@@ -1,0 +1,72 @@
+@use "../variables" as v;
+
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	background-color: v.clrl("dark", 15%);
+	padding-block: 0.4rem;
+	padding-inline: 5rem;
+
+	@include v.mq-max("medium") {
+		padding-inline: 2rem;
+	}
+
+	a {
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 1.05rem;
+		color: v.clr("light");
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: v.clrd("light", 5%);
+		}
+	}
+}
+
+.logo {
+	display: block;
+	width: 5rem;
+	aspect-ratio: 1;
+}
+
+.menu {
+	display: flex;
+	gap: 1rem;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.buttons {
+	display: flex;
+	gap: 1rem;
+}
+
+.buttons a {
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	font-size: 1.3rem;
+	width: 2.3em;
+	aspect-ratio: 1;
+	transition: background-color 0.2s ease;
+
+	&:nth-of-type(1) {
+		background-color: v.clrl("dark", 30%);
+
+		&:hover {
+			background-color: v.clrl("dark", 25%);
+		}
+	}
+
+	&:nth-of-type(2) {
+		background-color: v.clr("primary");
+
+		&:hover {
+			background-color: v.clrd("primary", 5%);
+		}
+	}
+}

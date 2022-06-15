@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import "./index.module.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -22,7 +23,7 @@ initializeApp({
 	measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 });
 
-library.add(fas);
+library.add(fas, fab);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

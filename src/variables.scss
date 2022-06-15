@@ -22,3 +22,23 @@ $colors: (
 @function clrd($name, $darken: 20%) {
 	@return darken(clr($name), $darken);
 }
+
+// breakpoints
+
+$breakpoints: (
+	"small": 40rem,
+	"medium": 65rem,
+	"large": 90rem,
+);
+
+@mixin mq-min($breakpoint) {
+	@media (min-width: map.get($breakpoints, $breakpoint)) {
+		@content;
+	}
+}
+
+@mixin mq-max($breakpoint) {
+	@media (max-width: map.get($breakpoints, $breakpoint)) {
+		@content;
+	}
+}

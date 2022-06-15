@@ -1,3 +1,5 @@
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import ProductList from "./components/products/ProductList";
 
 const products = [
@@ -71,7 +73,11 @@ const products = [
 export default function Home() {
 	return (
 		<>
-			<ProductList products={products} />
+			<Navbar />
+			<main>
+				<ProductList products={products} />
+			</main>
+			<Footer />
 		</>
 	);
 }
