@@ -21,7 +21,13 @@ i18next
 					"product-add-to-cart": "Add to Cart",
 					"product-more-info": "More Info",
 
+					// navbar
+					"navbar-home": "Go to Home Page",
+
 					// footer
+					"footer-phone": "Phone Number",
+					"footer-email": "E-mail",
+					"footer-location": "Where you can find us?",
 					"footer-github": "Source code on GitHub",
 
 					// 404
@@ -41,7 +47,13 @@ i18next
 					"product-add-to-cart": "Přidat do košíku",
 					"product-more-info": "Více informací",
 
+					// navbar
+					"navbar-home": "Přejít na domovskou stránku",
+
 					// footer
+					"footer-phone": "Telefonní číslo",
+					"footer-email": "E-mail",
+					"footer-location": "Kde nás najdete?",
 					"footer-github": "Zdrojový kód na GitHubu",
 
 					// 404
