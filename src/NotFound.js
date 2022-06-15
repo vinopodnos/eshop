@@ -1,13 +1,16 @@
+import { useTranslation } from "react-i18next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import style from "./NotFound.module.scss";
 
 export default function NotFound() {
+	const { t } = useTranslation();
 	return (
 		<>
 			<Navbar />
-			<main class={style["content"]}>
-				<h1>Not Found!</h1>
+			<main className={style["content"]}>
+				<h1>404</h1>
+				<p>{t("not-found")}</p>
 			</main>
 			<Footer />
 		</>
