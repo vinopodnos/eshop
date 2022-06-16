@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 
-export default function Navbar() {
+export default function Navbar({ id }) {
 	const { t } = useTranslation();
 	return (
-		<nav className={styles["navbar"]}>
+		<nav className={styles["navbar"]} id={id}>
 			<Link to="/" title={t("navbar-home")}>
 				<img src="/icon.svg" alt="logo" className={styles["logo"]} />
 			</Link>
