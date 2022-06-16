@@ -33,6 +33,8 @@ i18next
 					"footer-github": "Source code on GitHub",
 
 					// Home
+					"home-gallery-button": "Switch to image",
+					"home-scroll-down": "Scroll Down",
 					"home-featured": "Featured",
 					"home-show-all": "Show All",
 
@@ -65,6 +67,8 @@ i18next
 					"footer-github": "Zdrojový kód na GitHubu",
 
 					// Home
+					"home-gallery-button": "Přepnout na obrázek",
+					"home-scroll-down": "Přejít dolů",
 					"home-featured": "Doporučujeme",
 					"home-show-all": "Zobrazit vše",
 

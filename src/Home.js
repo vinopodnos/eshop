@@ -36,12 +36,100 @@ const featured = [
 export default function Home() {
 	const { t } = useTranslation();
 
+	const gallery = [
+		{ file: "VIGNE_VENDEMMIA_7", alt: "vinice" },
+		{ file: "TERRITORIO_3", alt: "vinice" },
+		{ file: "VENDEMMIA-TENUTE_1", alt: "víno" },
+	];
+	gallery.sort((a, b) => 0.5 - Math.random());
+
+	function scrollToMenu() {
+		document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+	}
+
+	function changeImage(active) {
+		// get all buttons and images
+		const buttons = document.querySelectorAll(
+			`.${styles["gallery"]} button[data-image]`
+		);
+		const images = document.querySelectorAll(
+			`.${styles["gallery"]} img[data-image]`
+		);
+		// toggle active classes
+		[...buttons].forEach((e) => {
+			e.classList.toggle(
+				styles["active"],
+				e.getAttribute("data-image") === `${active}`
+			);
+		});
+		[...images].forEach((e) => {
+			e.classList.toggle(
+				styles["active"],
+				e.getAttribute("data-image") === `${active}`
+			);
+		});
+	}
+
+	// auto change images
+	let currentImage = 0;
+	setInterval(() => {
+		currentImage++;
+		changeImage(currentImage % gallery.length);
+	}, 5000);
+
 	const elements = featured.map((e, i) => <Product key={i} product={e} />);
+
+	const galleryImages = gallery.map((e, i) => (
+		<img
+			key={i}
+			data-image={i}
+			className={i === 0 && styles["active"]}
+			src={`/photos/${e.file}_medium.jpg`}
+			srcSet={
+				`/photos/${e.file}_small.webp 640w, ` +
+				`/photos/${e.file}_medium.webp 1280w, ` +
+				`/photos/${e.file}_big.webp 1920w, ` +
+				`/photos/${e.file}_large.webp 2560w`
+			}
+			alt={e.alt}
+		/>
+	));
+
+	const galleryButtons = gallery.map((e, i) => (
+		<button
+			key={i}
+			data-image={i}
+			className={i === 0 && styles["active"]}
+			aria-label={`${t("home-gallery-button")}: ${e.alt}`}
+			onClick={() => changeImage(i)}
+		></button>
+	));
 
 	return (
 		<>
-			<header></header>
-			<Navbar />
+			<header className={styles["hero"]}>
+				<div className={styles["container"]}>
+					<div className={styles["hero-content"]}>
+						<Link
+							to="/"
+							title={t("navbar-home")}
+							className={styles["logo"]}
+						>
+							<img src="/logo.svg" alt="logo" />
+						</Link>
+						<button
+							onClick={scrollToMenu}
+							className={styles["scroll-button"]}
+							title={t("home-scroll-down")}
+						></button>
+					</div>
+				</div>
+				<div className={styles["gallery"]}>
+					<div className={styles["controls"]}>{galleryButtons}</div>
+					{galleryImages}
+				</div>
+			</header>
+			<Navbar id="menu" />
 			<main className={styles["content"]}>
 				<h1>{t("home-featured")}</h1>
 				<div className={styles["grid"]}>{elements}</div>
