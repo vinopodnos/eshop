@@ -117,16 +117,24 @@ export default function Home() {
 						>
 							<img src="/logo.svg" alt="logo" />
 						</Link>
+						<p className={styles["hero-text"]}>
+							Express rozvoz do 90 minut!
+						</p>
+						<Link to="/" className={styles["hero-button"]}>
+							Objednat
+						</Link>
 						<button
 							onClick={scrollToMenu}
 							className={styles["scroll-button"]}
 							title={t("home-scroll-down")}
 						></button>
 					</div>
-				</div>
-				<div className={styles["gallery"]}>
-					<div className={styles["controls"]}>{galleryButtons}</div>
-					{galleryImages}
+					<div className={styles["gallery"]}>
+						<div className={styles["controls"]}>
+							{galleryButtons}
+						</div>
+						{galleryImages}
+					</div>
 				</div>
 			</header>
 			<Navbar id="menu" />
