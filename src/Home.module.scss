@@ -212,7 +212,7 @@
 		margin-inline-start: 1.5rem;
 	}
 
-	.controls {
+	.dots {
 		position: absolute;
 		z-index: 3;
 		display: grid;
@@ -231,14 +231,13 @@
 			transform: translateY(-50%);
 		}
 
-		button {
+		div {
 			appearance: none;
 			background: none;
 			border: 3px solid v.clr("light");
 			border-radius: 50%;
 			width: 1rem;
 			aspect-ratio: 1;
-			cursor: pointer;
 			transition: background-color 0.5s ease;
 
 			&.active {

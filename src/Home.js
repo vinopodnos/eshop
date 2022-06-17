@@ -47,10 +47,14 @@ export default function Home() {
 		document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
 	}
 
-	function changeImage(active) {
+	// auto change images
+	let currentImage = 0;
+	setInterval(() => {
+		currentImage++;
+		const active = currentImage % gallery.length;
 		// get all buttons and images
 		const buttons = document.querySelectorAll(
-			`.${styles["gallery"]} button[data-image]`
+			`.${styles["gallery"]} .${styles["dots"]} div[data-image]`
 		);
 		const images = document.querySelectorAll(
 			`.${styles["gallery"]} img[data-image]`
@@ -68,13 +72,6 @@ export default function Home() {
 				e.getAttribute("data-image") === `${active}`
 			);
 		});
-	}
-
-	// auto change images
-	let currentImage = 0;
-	setInterval(() => {
-		currentImage++;
-		changeImage(currentImage % gallery.length);
 	}, 5000);
 
 	const elements = featured.map((e, i) => <Product key={i} product={e} />);
@@ -83,7 +80,7 @@ export default function Home() {
 		<img
 			key={i}
 			data-image={i}
-			className={i === 0 && styles["active"]}
+			className={i === 0 ? styles["active"] : undefined}
 			src={`/photos/${e.file}_medium.jpg`}
 			srcSet={
 				`/photos/${e.file}_small.webp 640w, ` +
@@ -96,13 +93,12 @@ export default function Home() {
 	));
 
 	const galleryButtons = gallery.map((e, i) => (
-		<button
+		<div
 			key={i}
 			data-image={i}
-			className={i === 0 && styles["active"]}
+			className={i === 0 ? styles["active"] : undefined}
 			aria-label={`${t("home-gallery-button")}: ${e.alt}`}
-			onClick={() => changeImage(i)}
-		></button>
+		></div>
 	));
 
 	return (
@@ -130,9 +126,7 @@ export default function Home() {
 						></button>
 					</div>
 					<div className={styles["gallery"]}>
-						<div className={styles["controls"]}>
-							{galleryButtons}
-						</div>
+						<div className={styles["dots"]}>{galleryButtons}</div>
 						{galleryImages}
 					</div>
 				</div>
