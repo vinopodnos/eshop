@@ -137,12 +137,16 @@
 	}
 }
 
-.grid {
+.featured {
 	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, 260px);
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1.5rem;
+
+	> * {
+		width: 260px;
+	}
 }
 
 .hero-button,

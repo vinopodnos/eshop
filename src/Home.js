@@ -124,7 +124,7 @@ export default function Home() {
 			<Navbar id="menu" />
 			<main className={styles["content"]}>
 				<h1>{t("home-featured")}</h1>
-				<div className={styles["grid"]}>{elements}</div>
+				<div className={styles["featured"]}>{elements}</div>
 				<Link to="/" className={styles["show-all"]}>
 					{t("home-show-all")}
 				</Link>
