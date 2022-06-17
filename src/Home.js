@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -36,43 +37,24 @@ const featured = [
 export default function Home() {
 	const { t } = useTranslation();
 
+	const [currentImage, setCurrentImage] = useState(0);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setCurrentImage((p) => p + 1);
+		}, 5000);
+		return () => clearTimeout(timeout);
+	});
+
 	const gallery = [
 		{ file: "VIGNE_VENDEMMIA_7", alt: "vinice" },
 		{ file: "TERRITORIO_3", alt: "vinice" },
 		{ file: "VENDEMMIA-TENUTE_1", alt: "víno" },
 	];
-	gallery.sort((a, b) => 0.5 - Math.random());
 
 	function scrollToMenu() {
 		document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
 	}
-
-	// auto change images
-	let currentImage = 0;
-	setInterval(() => {
-		currentImage++;
-		const active = currentImage % gallery.length;
-		// get all buttons and images
-		const buttons = document.querySelectorAll(
-			`.${styles["gallery"]} .${styles["dots"]} div[data-image]`
-		);
-		const images = document.querySelectorAll(
-			`.${styles["gallery"]} img[data-image]`
-		);
-		// toggle active classes
-		[...buttons].forEach((e) => {
-			e.classList.toggle(
-				styles["active"],
-				e.getAttribute("data-image") === `${active}`
-			);
-		});
-		[...images].forEach((e) => {
-			e.classList.toggle(
-				styles["active"],
-				e.getAttribute("data-image") === `${active}`
-			);
-		});
-	}, 5000);
 
 	const elements = featured.map((e, i) => <Product key={i} product={e} />);
 
@@ -80,7 +62,11 @@ export default function Home() {
 		<img
 			key={i}
 			data-image={i}
-			className={i === 0 ? styles["active"] : undefined}
+			className={
+				i === currentImage % gallery.length
+					? styles["active"]
+					: undefined
+			}
 			src={`/photos/${e.file}_medium.jpg`}
 			srcSet={
 				`/photos/${e.file}_small.webp 640w, ` +
@@ -96,7 +82,11 @@ export default function Home() {
 		<div
 			key={i}
 			data-image={i}
-			className={i === 0 ? styles["active"] : undefined}
+			className={
+				i === currentImage % gallery.length
+					? styles["active"]
+					: undefined
+			}
 			aria-label={`${t("home-gallery-button")}: ${e.alt}`}
 		></div>
 	));
