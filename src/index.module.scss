@@ -2,7 +2,6 @@
 
 body {
 	margin: 0;
-	color-scheme: light dark;
 	scroll-behavior: smooth;
 }
 
@@ -11,11 +10,6 @@ body > div {
 	display: flex;
 	flex-direction: column;
 	background-color: v.clrd("light", 3%);
-
-	@media (prefers-color-scheme: dark) {
-		color: white;
-		background-color: v.clrl("dark", 10%);
-	}
 }
 
 *,
