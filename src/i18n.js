@@ -39,6 +39,9 @@ i18next
 					"home-featured": "Featured",
 					"home-show-all": "Show All",
 
+					// Categories
+					"categories-title": "All Categories",
+
 					// 404
 					"not-found": "This page was not found! 🙁️",
 				},
@@ -73,6 +76,9 @@ i18next
 					"home-scroll-down": "Přejít dolů",
 					"home-featured": "Doporučujeme",
 					"home-show-all": "Zobrazit vše",
+
+					// Categories
+					"categories-title": "Všechny kategorie",
 
 					// 404
 					"not-found": "Tato stránka nebyla nalezena! 🙁️",
