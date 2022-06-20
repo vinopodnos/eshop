@@ -20,6 +20,7 @@ i18next
 					"product-prev-price": "previous price",
 					"product-add-to-cart": "Add to Cart",
 					"product-more-info": "More Info",
+					"product-rating": "Rating: {rating} stars",
 
 					// navbar
 					"navbar-home": "Go to Home Page",
@@ -58,6 +59,7 @@ i18next
 					"product-prev-price": "předchozí cena",
 					"product-add-to-cart": "Přidat do košíku",
 					"product-more-info": "Více informací",
+					"product-rating": "Hodnocení: {rating} hvězdiček",
 
 					// navbar
 					"navbar-home": "Přejít na domovskou stránku",
