@@ -25,6 +25,7 @@ i18next
 					"navbar-home": "Go to Home Page",
 					"navbar-user": "User Section",
 					"navbar-cart": "Cart",
+					"navbar-toggler": "Toggle Menu",
 
 					// footer
 					"footer-phone": "Phone Number",
@@ -59,6 +60,7 @@ i18next
 					"navbar-home": "Přejít na domovskou stránku",
 					"navbar-user": "Uživatelská sekce",
 					"navbar-cart": "Košík",
+					"navbar-toggler": "Přepnout menu",
 
 					// footer
 					"footer-phone": "Telefonní číslo",

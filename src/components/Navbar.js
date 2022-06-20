@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -5,12 +6,28 @@ import styles from "./Navbar.module.scss";
 
 export default function Navbar({ id }) {
 	const { t } = useTranslation();
+
+	const menu = useRef();
+	const button = useRef();
+	const hamburger = useRef();
+
+	function toggleMenu() {
+		button.current.classList.toggle(styles["open"]);
+		const open = button.current.classList.contains(styles["open"]);
+		hamburger.current.classList.toggle(styles["open"], open);
+		if (open) {
+			menu.current.style.maxHeight = menu.current.scrollHeight + "px";
+		} else {
+			menu.current.style.maxHeight = "";
+		}
+	}
+
 	return (
 		<nav className={styles["navbar"]} id={id}>
 			<Link to="/" title={t("navbar-home")}>
 				<img src="/icon.svg" alt="logo" className={styles["logo"]} />
 			</Link>
-			<ul className={styles["menu"]}>
+			<ul ref={menu} className={styles["menu"]}>
 				<li>
 					<Link to="/">Červené víno</Link>
 				</li>
@@ -29,6 +46,17 @@ export default function Navbar({ id }) {
 					<FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
 					<span>2</span>
 				</Link>
+				<button
+					ref={button}
+					className={styles["menu-toggler"]}
+					title={t("navbar-toggler")}
+					onClick={toggleMenu}
+				>
+					<span
+						ref={hamburger}
+						className={styles["hamburger"]}
+					></span>
+				</button>
 			</div>
 		</nav>
 	);
