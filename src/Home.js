@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -37,6 +37,8 @@ const featured = [
 export default function Home() {
 	const { t } = useTranslation();
 
+	const menu = useRef();
+
 	const [currentImage, setCurrentImage] = useState(0);
 
 	useEffect(() => {
@@ -53,7 +55,7 @@ export default function Home() {
 	];
 
 	function scrollToMenu() {
-		document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+		menu.current.scrollIntoView({ behavior: "smooth" });
 	}
 
 	const elements = featured.map((e, i) => <Product key={i} product={e} />);
@@ -106,7 +108,10 @@ export default function Home() {
 						<p className={styles["hero-text"]}>
 							Express rozvoz do 90 minut!
 						</p>
-						<Link to="/" className={styles["hero-button"]}>
+						<Link
+							to="/categories"
+							className={styles["hero-button"]}
+						>
 							Objednat
 						</Link>
 						<button
@@ -121,11 +126,11 @@ export default function Home() {
 					</div>
 				</div>
 			</header>
-			<Navbar id="menu" />
+			<Navbar ref={menu} id="menu" />
 			<main className={styles["content"]}>
 				<h1>{t("home-featured")}</h1>
 				<div className={styles["featured"]}>{elements}</div>
-				<Link to="/" className={styles["show-all"]}>
+				<Link to="/categories" className={styles["show-all"]}>
 					{t("home-show-all")}
 				</Link>
 			</main>

@@ -1,10 +1,10 @@
-import { useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 
-export default function Navbar({ id }) {
+const Navbar = forwardRef(({ id }, ref) => {
 	const { t } = useTranslation();
 
 	const menu = useRef();
@@ -23,19 +23,19 @@ export default function Navbar({ id }) {
 	}
 
 	return (
-		<nav className={styles["navbar"]} id={id}>
+		<nav className={styles["navbar"]} id={id} ref={ref}>
 			<Link to="/" title={t("navbar-home")}>
 				<img src="/icon.svg" alt="logo" className={styles["logo"]} />
 			</Link>
 			<ul ref={menu} className={styles["menu"]}>
 				<li>
-					<Link to="/">Červené víno</Link>
+					<Link to="/categories/1">Červené víno</Link>
 				</li>
 				<li>
-					<Link to="/">Bílé víno</Link>
+					<Link to="/categories/2">Bílé víno</Link>
 				</li>
 				<li>
-					<Link to="/">Další alkohol</Link>
+					<Link to="/categories/3">Další alkohol</Link>
 				</li>
 			</ul>
 			<div className={styles["buttons"]}>
@@ -60,4 +60,6 @@ export default function Navbar({ id }) {
 			</div>
 		</nav>
 	);
-}
+});
+
+export default Navbar;
