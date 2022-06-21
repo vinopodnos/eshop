@@ -111,7 +111,7 @@ export default function Home() {
 							to="/categories"
 							className={styles["hero-button"]}
 						>
-							Objednat
+							{t("home-order-now")}
 						</Link>
 						<button
 							onClick={scrollToMenu}

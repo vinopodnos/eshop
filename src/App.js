@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ScrollToTop from "./ScrollToTop";
 import Home from "./Home";
 import Categories from "./Categories";
@@ -7,6 +8,10 @@ import Product from "./Product";
 import NotFound from "./NotFound";
 
 export default function App() {
+	const { i18n } = useTranslation();
+
+	document.documentElement.lang = i18n.language;
+
 	return (
 		<BrowserRouter>
 			<ScrollToTop>
