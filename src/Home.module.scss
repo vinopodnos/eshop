@@ -221,7 +221,7 @@
 		z-index: 3;
 		display: grid;
 		gap: 0.5rem;
-		opacity: 0.75;
+		opacity: 0.25;
 
 		@include v.mq-max("small") {
 			inset-block-start: 0;
