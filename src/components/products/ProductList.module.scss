@@ -95,6 +95,10 @@
 	&:hover {
 		opacity: 0.8;
 	}
+
+	@include v.mq-min("medium") {
+		display: none;
+	}
 }
 
 .product-grid {
