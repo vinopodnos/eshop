@@ -1,0 +1,178 @@
+@use "../variables.scss" as v;
+
+.gallery {
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	gap: 0.5rem;
+	user-select: none;
+
+	img {
+		display: block;
+		background-color: v.clr("light");
+		padding: 0.2rem;
+		border-radius: 5px;
+		border: 1px solid v.clrd("light");
+		aspect-ratio: 1;
+		object-fit: contain;
+		transition: opacity 0.2s ease;
+	}
+
+	&:hover .controls {
+		opacity: 1;
+	}
+}
+
+.controls {
+	position: absolute;
+	inset-block: 0;
+	inset-inline: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	padding-inline: 1rem;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+
+	@include v.mq-max("medium") {
+		opacity: 1;
+	}
+
+	button {
+		font-size: 2.5rem;
+		width: 25%;
+		display: flex;
+		align-items: center;
+		appearance: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		transition: opacity 0.2s ease;
+		opacity: 0.4;
+		color: currentColor;
+		filter: drop-shadow(0 0 0.25rem #0005);
+
+		@include v.mq-max("medium") {
+			filter: drop-shadow(0 0 0.5rem #000);
+		}
+
+		&:last-child {
+			justify-content: flex-end;
+		}
+
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+}
+
+.images {
+	aspect-ratio: 1;
+	position: relative;
+	cursor: pointer;
+}
+
+.images,
+.lightbox {
+	img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+}
+
+.buttons {
+	display: flex;
+	max-width: 100%;
+	overflow-x: auto;
+	gap: 0.5rem;
+
+	img {
+		height: 4rem;
+		opacity: 0.5;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+
+	button {
+		display: block;
+		appearance: none;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+	}
+}
+
+.lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 999;
+	isolation: isolate;
+	color: v.clr("light");
+	transform: translateY(-100%);
+	transition: transform 0.2s ease;
+
+	&.open {
+		transform: none;
+	}
+
+	.close {
+		position: absolute;
+		inset-block-start: 1rem;
+		inset-inline-end: 1rem;
+		color: currentColor;
+		appearance: none;
+		background: none;
+		border: none;
+		font-size: 2rem;
+		cursor: pointer;
+		opacity: 0.6;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background-color: v.clrl("dark", 5%);
+		opacity: 0.95;
+		backdrop-filter: blur(10px);
+	}
+
+	&::after {
+		content: attr(data-current) " / " attr(data-count);
+		display: block;
+		position: absolute;
+		inset-block-end: 1rem;
+		inset-inline-start: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+		background-color: v.clrl("dark", 15%);
+		padding: 0.4rem 0.8rem;
+		border-radius: 5px;
+		box-shadow: 0 0 0.25rem #0005;
+	}
+
+	img {
+		object-fit: scale-down;
+		background: none;
+		border: none;
+		padding: 0;
+		border-radius: 0;
+	}
+}

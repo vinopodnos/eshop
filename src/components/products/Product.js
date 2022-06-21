@@ -50,7 +50,7 @@ export default function Product({ product }) {
 				</div>
 				<Link
 					className={styles["link"]}
-					to="/"
+					to="/products/1"
 					aria-label={product.title}
 				></Link>
 			</div>

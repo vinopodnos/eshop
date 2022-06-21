@@ -1,0 +1,43 @@
+@use "./variables" as v;
+
+.content {
+	display: grid;
+	gap: 3rem;
+	padding-block: 3rem;
+	padding-inline: 1.5rem;
+	margin-inline: auto;
+	max-width: 70rem;
+
+	@include v.mq-min("medium") {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	> * {
+		margin: 0;
+	}
+
+	h1 {
+		font-weight: 600;
+		font-size: 2rem;
+	}
+
+	strong {
+		display: flex;
+		align-items: baseline;
+		gap: 1ch;
+		font-size: 1.6rem;
+		font-weight: 500;
+
+		small,
+		.rating {
+			font-size: 0.7em;
+			text-decoration: line-through;
+		}
+	}
+}
