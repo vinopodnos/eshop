@@ -1,13 +1,17 @@
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Product from "./Product";
 import Range from "../Range";
 import styles from "./ProductList.module.scss";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function ProductList({ products }) {
 	const { t } = useTranslation();
+
 	const [filterMinPrice, setFilterMinPrice] = useState(0);
 	const [filterMaxPrice, setFilterMaxPrice] = useState(0);
+
+	const sidebar = useRef();
 
 	if (!Array.isArray(products) || products.length <= 0) {
 		return (
@@ -39,9 +43,21 @@ export default function ProductList({ products }) {
 		return p.price >= filterMinPrice && p.price <= filterMaxPrice;
 	});
 
+	function openSidebar() {
+		sidebar.current.classList.add(styles["open"]);
+	}
+
+	function closeSidebar() {
+		sidebar.current.classList.remove(styles["open"]);
+	}
+
 	return (
 		<div className={styles["product-list"]}>
-			<aside className={styles["sidebar"]}>
+			<button className={styles["open-btn"]} onClick={openSidebar}>
+				<FontAwesomeIcon icon="fa-solid fa-sliders" />
+				{t("products-filters")}
+			</button>
+			<aside ref={sidebar} className={styles["sidebar"]}>
 				{minPrice}&ensp;{maxPrice}
 				<br />
 				{filterMinPrice}&ensp;{filterMaxPrice}
@@ -53,6 +69,9 @@ export default function ProductList({ products }) {
 						setFilterMaxPrice(b);
 					}}
 				/>
+				<button className={styles["close-btn"]} onClick={closeSidebar}>
+					<FontAwesomeIcon icon="fa-solid fa-xmark" />
+				</button>
 			</aside>
 			<div
 				className={

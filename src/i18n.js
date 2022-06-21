@@ -17,6 +17,7 @@ i18next
 
 					// products
 					"products-not-found": "No products found",
+					"products-filters": "Filters",
 					"product-prev-price": "previous price",
 					"product-add-to-cart": "Add to Cart",
 					"product-more-info": "More Info",
@@ -56,6 +57,7 @@ i18next
 
 					// products
 					"products-not-found": "Žádné produkty nebyly nalezeny",
+					"products-filters": "Filtry",
 					"product-prev-price": "předchozí cena",
 					"product-add-to-cart": "Přidat do košíku",
 					"product-more-info": "Více informací",

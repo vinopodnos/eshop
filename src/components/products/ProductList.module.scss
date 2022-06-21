@@ -3,7 +3,14 @@
 .product-list {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 250px auto;
+
+	@include v.mq-max("medium") {
+		padding-inline: 2rem;
+	}
+
+	@include v.mq-min("medium") {
+		grid-template-columns: 250px auto;
+	}
 }
 
 .sidebar {
@@ -12,8 +19,82 @@
 	max-height: 100vh;
 	overflow-y: auto;
 	position: sticky;
-	top: 0;
+	inset-block-start: 0;
 	padding: 0.8rem;
+
+	@include v.mq-max("medium") {
+		position: fixed;
+		inset-block: 0;
+		inset-inline-start: 0;
+		padding-block-start: 2rem;
+		width: 250px;
+		background-color: v.clrd("light", 10%);
+		z-index: 999;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+		transform: translateX(-110%); // due to the box-shadow
+		transition: transform 0.2s ease;
+
+		&.open {
+			transform: none;
+		}
+	}
+}
+
+.close-btn {
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-end: 0;
+	appearance: none;
+	background: none;
+	border: none;
+	padding: 0.4em;
+	aspect-ratio: 1;
+	font-size: 1.5rem;
+	display: grid;
+	place-content: center;
+	cursor: pointer;
+	opacity: 0.6;
+	transition: opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.8;
+	}
+
+	svg {
+		display: block;
+	}
+
+	@include v.mq-min("medium") {
+		display: none;
+	}
+}
+
+.open-btn {
+	position: sticky;
+	inset-block-start: 2rem;
+	appearance: none;
+	background: none;
+	border: none;
+	width: fit-content;
+	background-color: v.clr("primary");
+	color: v.clr("light");
+	padding: 0.5em;
+	height: 2em;
+	min-width: 2em;
+	border-radius: 100vmax;
+	display: flex;
+	align-items: center;
+	gap: 0.5ch;
+	margin-block-end: 1em;
+	cursor: pointer;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	opacity: 0.6;
+	transition: opacity 0.2s ease;
+	z-index: 998;
+
+	&:hover {
+		opacity: 0.8;
+	}
 }
 
 .product-grid {
