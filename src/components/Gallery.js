@@ -10,12 +10,16 @@ export default function Gallery({ images, className }) {
 
 	const controls = (
 		<div className={styles["controls"]}>
-			<button onClick={previousImage}>
-				<FontAwesomeIcon icon="fa-solid fa-angle-left" />
-			</button>
-			<button onClick={nextImage}>
-				<FontAwesomeIcon icon="fa-solid fa-angle-right" />
-			</button>
+			{images.length > 1 ? (
+				<>
+					<button onClick={previousImage}>
+						<FontAwesomeIcon icon="fa-solid fa-angle-left" />
+					</button>
+					<button onClick={nextImage}>
+						<FontAwesomeIcon icon="fa-solid fa-angle-right" />
+					</button>
+				</>
+			) : undefined}
 		</div>
 	);
 
@@ -62,7 +66,9 @@ export default function Gallery({ images, className }) {
 				{galleryImages}
 				{controls}
 			</div>
-			<div className={styles["buttons"]}>{galleryButtons}</div>
+			{images.length > 1 ? (
+				<div className={styles["buttons"]}>{galleryButtons}</div>
+			) : undefined}
 			<div
 				ref={lightbox}
 				className={styles["lightbox"]}
