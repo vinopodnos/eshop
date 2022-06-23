@@ -9,10 +9,8 @@ export function useCart() {
 
 export function CartProvider({ children }) {
 	const [cart, setCart] = useLocalStorage("cart", []);
-	console.log(cart);
 
 	function increaseQuantity(id) {
-		console.log(id);
 		setCart((p) => {
 			if (p.find((i) => i.id === id) === undefined) {
 				return [...p, { id, quantity: 1 }];
