@@ -27,9 +27,9 @@ export default function Product() {
 					<h1>{productId}: Merlot IGP 2020, Rafale</h1>
 					<p>Červené víno polosuché – Francie</p>
 					<strong>
-						{t("currency-str").replace("{price}", 186)}
+						{t("currency-format")(186)}
 						<small aria-label={t("product-prev-price")}>
-							{t("currency-str").replace("{price}", 200)}
+							{t("currency-format")(200)}
 						</small>
 					</strong>
 				</div>

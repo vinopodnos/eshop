@@ -12,8 +12,11 @@ i18next
 				translation: {
 					// currencies
 					"currency-code": "EUR",
-					"currency-str": "€ {price}",
-					"currency-format": (v) => v.toFixed(2),
+					"currency-format": (v) =>
+						new Intl.NumberFormat("en", {
+							style: "currency",
+							currency: "EUR",
+						}).format(v),
 
 					// products
 					"products-not-found": "No products found",
@@ -52,8 +55,11 @@ i18next
 				translation: {
 					// currencies
 					"currency-code": "CZK",
-					"currency-str": "{price} Kč",
-					"currency-format": (v) => Math.ceil(v),
+					"currency-format": (v) =>
+						new Intl.NumberFormat("cs", {
+							style: "currency",
+							currency: "CZK",
+						}).format(v),
 
 					// products
 					"products-not-found": "Žádné produkty nebyly nalezeny",

@@ -33,13 +33,10 @@ export default function Product({ product }) {
 					<h2>{product.title}</h2>
 					<p>{product.describtion}</p>
 					<strong>
-						{t("currency-str").replace("{price}", price)}
+						{price}
 						{product.prevPrice && (
 							<small aria-label={t("product-prev-price")}>
-								{t("currency-str").replace(
-									"{price}",
-									prevPrice
-								)}
+								{prevPrice}
 							</small>
 						)}
 						{product.rating && (
