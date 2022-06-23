@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ScrollToTop from "./ScrollToTop";
+import { CartProvider } from "./CartContext";
 import Home from "./Home";
 import Categories from "./Categories";
 import Category from "./Category";
@@ -15,16 +16,21 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<ScrollToTop>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/categories" element={<Categories />} />
-					<Route
-						path="/categories/:categoryId"
-						element={<Category />}
-					/>
-					<Route path="/products/:productId" element={<Product />} />
-					<Route path="*" element={<NotFound />} />
-				</Routes>
+				<CartProvider>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/categories" element={<Categories />} />
+						<Route
+							path="/categories/:categoryId"
+							element={<Category />}
+						/>
+						<Route
+							path="/products/:productId"
+							element={<Product />}
+						/>
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</CartProvider>
 			</ScrollToTop>
 		</BrowserRouter>
 	);

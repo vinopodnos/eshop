@@ -2,10 +2,12 @@ import { forwardRef, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useCart } from "../CartContext";
 import styles from "./Navbar.module.scss";
 
 const Navbar = forwardRef(({ id }, ref) => {
 	const { t } = useTranslation();
+	const { cartQuantity } = useCart();
 
 	const menu = useRef();
 	const button = useRef();
@@ -44,7 +46,7 @@ const Navbar = forwardRef(({ id }, ref) => {
 				</Link>
 				<Link to="/" title={t("navbar-cart")}>
 					<FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
-					<span>2</span>
+					{cartQuantity > 0 ? <span>{cartQuantity}</span> : undefined}
 				</Link>
 				<button
 					ref={button}

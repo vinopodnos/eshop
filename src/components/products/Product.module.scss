@@ -59,7 +59,8 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 
-		a {
+		a,
+		button {
 			display: block;
 			text-decoration: none;
 			text-align: center;
@@ -70,9 +71,12 @@
 			justify-content: center;
 			align-items: center;
 			gap: 0.6ch;
+			appearance: none;
+			border: none;
+			cursor: pointer;
 		}
 
-		a:first-child {
+		button {
 			color: v.clr("light");
 			background-color: v.clr("primary");
 			border-bottom-left-radius: 5px;
@@ -81,7 +85,7 @@
 			}
 		}
 
-		a:last-child {
+		a {
 			color: v.clr("dark");
 			background-color: rgb(v.clr("dark"), 15%);
 			border-bottom-right-radius: 5px;

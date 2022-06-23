@@ -3,6 +3,7 @@ import { convert } from "../../currency";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Rating from "../Rating";
+import { useCart } from "../../CartContext";
 import styles from "./Product.module.scss";
 import { useEffect, useState } from "react";
 
@@ -19,6 +20,7 @@ export default function Product({ product }) {
 			setPrevPrice(t("currency-format")(v))
 		);
 	}, [product.price, product.prevPrice, t]);
+	const { increaseQuantity } = useCart();
 
 	return (
 		<div
@@ -55,10 +57,10 @@ export default function Product({ product }) {
 				></Link>
 			</div>
 			<div className={styles["buttons"]}>
-				<Link to="/">
+				<button onClick={() => increaseQuantity(1)}>
 					<FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
 					{t("product-add-to-cart")}
-				</Link>
+				</button>
 				<Link to="/">
 					<FontAwesomeIcon icon="fa-solid fa-circle-info" />
 					{t("product-more-info")}

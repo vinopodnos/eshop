@@ -27,6 +27,7 @@ export default function Categories() {
 
 	const categoryElements = categories.map((e) => (
 		<Link
+			key={e.id}
 			className={styles["item"]}
 			title={e.title}
 			to={`/categories/${e.id}`}
