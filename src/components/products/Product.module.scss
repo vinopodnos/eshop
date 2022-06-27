@@ -87,10 +87,10 @@
 
 		a {
 			color: v.clr("dark");
-			background-color: rgb(v.clr("dark"), 15%);
+			background-color: rgb(v.clr("dark"), 10%);
 			border-bottom-right-radius: 5px;
 			&:hover {
-				background-color: rgb(v.clr("dark"), 20%);
+				background-color: rgb(v.clr("dark"), 15%);
 			}
 		}
 	}
