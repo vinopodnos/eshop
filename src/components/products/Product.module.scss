@@ -4,9 +4,9 @@
 	--line-color: #{v.clr("dark")};
 	max-width: 20rem;
 	max-height: fit-content;
-	box-shadow: 0 0 5px rgb(v.clr("dark"), 20%);
-	border-radius: 5px;
+	border: 1px solid v.clrd("light", 15%);
 	border-block-start: 5px solid var(--line-color);
+	border-radius: 5px;
 	background-color: v.clr("light");
 
 	.content {
