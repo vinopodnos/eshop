@@ -1,0 +1,20 @@
+-   [ ] Home Page
+    -   [ ] Better title in the hero section
+-   [ ] Product Page
+    -   [ ] Add Add to Cart button
+-   [ ] Cart Page
+-   [ ] Checkout Section
+    -   [ ] Customer information
+    -   [ ] Stripe integration
+    -   [ ] Invoice printing
+-   [ ] User Section
+    -   [ ] Order Tracking
+    -   [ ] Gift Coupon Ordering
+    -   [ ] List of invoices
+-   [ ] Administration Section
+    -   [ ] Managing products
+    -   [ ] Managing categories
+    -   [ ] Managing orders
+        -   [ ] Invoice printing
+    -   [ ] Managing stock
+    -   [ ] Managing users
