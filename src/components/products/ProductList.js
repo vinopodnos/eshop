@@ -43,12 +43,31 @@ export default function ProductList({ products }) {
 		return p.price >= filterMinPrice && p.price <= filterMaxPrice;
 	});
 
+	function stopPropagation(e) {
+		if (e.target.closest(`.${styles["close-btn"]}`)) return;
+		e.stopPropagation();
+	}
+
+	function clickedOutside() {
+		closeSidebar();
+	}
+
 	function openSidebar() {
 		sidebar.current.classList.add(styles["open"]);
+		sidebar.current.addEventListener(
+			"transitionend",
+			() => {
+				sidebar.current.addEventListener("click", stopPropagation);
+				document.body.addEventListener("click", clickedOutside);
+			},
+			{ once: true }
+		);
 	}
 
 	function closeSidebar() {
 		sidebar.current.classList.remove(styles["open"]);
+		sidebar.current.removeEventListener("click", stopPropagation);
+		document.body.removeEventListener("click", clickedOutside);
 	}
 
 	return (
@@ -69,7 +88,7 @@ export default function ProductList({ products }) {
 						setFilterMaxPrice(b);
 					}}
 				/>
-				<button className={styles["close-btn"]} onClick={closeSidebar}>
+				<button className={styles["close-btn"]}>
 					<FontAwesomeIcon icon="fa-solid fa-xmark" />
 				</button>
 			</aside>
