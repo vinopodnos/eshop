@@ -58,7 +58,7 @@ export default function Product({ product }) {
 					<FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
 					{t("product-add-to-cart")}
 				</button>
-				<Link to="/">
+				<Link to="/products/1">
 					<FontAwesomeIcon icon="fa-solid fa-circle-info" />
 					{t("product-more-info")}
 				</Link>
