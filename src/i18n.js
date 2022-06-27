@@ -10,7 +10,7 @@ i18next
 		resources: {
 			en: {
 				translation: {
-					// currencies
+					// Currencies
 					"currency-code": "EUR",
 					"currency-format": (v) =>
 						new Intl.NumberFormat("en", {
@@ -18,7 +18,7 @@ i18next
 							currency: "EUR",
 						}).format(v),
 
-					// products
+					// Products
 					"products-not-found": "No products found",
 					"products-filters": "Filters",
 					"product-prev-price": "previous price",
@@ -26,13 +26,13 @@ i18next
 					"product-more-info": "More Info",
 					"product-rating": "Rating: {rating} stars",
 
-					// navbar
+					// Navbar
 					"navbar-home": "Go to Home Page",
 					"navbar-user": "User Section",
 					"navbar-cart": "Cart",
 					"navbar-toggler": "Toggle Menu",
 
-					// footer
+					// Footer
 					"footer-phone": "Phone Number",
 					"footer-email": "E-mail",
 					"footer-location": "Where you can find us?",
@@ -47,13 +47,16 @@ i18next
 					// Categories
 					"categories-title": "All Categories",
 
+					// Checkout
+					"checkout-cart": "Cart",
+
 					// 404
 					"not-found": "This page was not found! 🙁️",
 				},
 			},
 			cs: {
 				translation: {
-					// currencies
+					// Currencies
 					"currency-code": "CZK",
 					"currency-format": (v) =>
 						new Intl.NumberFormat("cs", {
@@ -61,7 +64,7 @@ i18next
 							currency: "CZK",
 						}).format(v),
 
-					// products
+					// Products
 					"products-not-found": "Žádné produkty nebyly nalezeny",
 					"products-filters": "Filtry",
 					"product-prev-price": "předchozí cena",
@@ -69,13 +72,13 @@ i18next
 					"product-more-info": "Více informací",
 					"product-rating": "Hodnocení: {rating} hvězdiček",
 
-					// navbar
+					// Navbar
 					"navbar-home": "Přejít na domovskou stránku",
 					"navbar-user": "Uživatelská sekce",
 					"navbar-cart": "Košík",
 					"navbar-toggler": "Přepnout menu",
 
-					// footer
+					// Footer
 					"footer-phone": "Telefonní číslo",
 					"footer-email": "E-mail",
 					"footer-location": "Kde nás najdete?",
@@ -89,6 +92,9 @@ i18next
 
 					// Categories
 					"categories-title": "Všechny kategorie",
+
+					// Checkout
+					"checkout-cart": "Košík",
 
 					// 404
 					"not-found": "Tato stránka nebyla nalezena! 🙁️",
