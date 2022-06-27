@@ -18,3 +18,4 @@
         -   [ ] Invoice printing
     -   [ ] Managing stock
     -   [ ] Managing users
+-   [ ] Connect to backend
