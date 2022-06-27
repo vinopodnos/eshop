@@ -29,7 +29,6 @@ i18next
 					// Navbar
 					"navbar-home": "Go to Home Page",
 					"navbar-user": "User Section",
-					"navbar-cart": "Cart",
 					"navbar-toggler": "Toggle Menu",
 
 					// Footer
@@ -47,8 +46,12 @@ i18next
 					// Categories
 					"categories-title": "All Categories",
 
-					// Checkout
-					"checkout-cart": "Cart",
+					// Cart
+					"cart-title": "Cart",
+					"cart-items": "Products ({count})",
+					"cart-tax": "Tax",
+					"cart-total": "Total",
+					"cart-checkout": "Proceed to Checkout",
 
 					// 404
 					"not-found": "This page was not found! 🙁️",
@@ -75,7 +78,6 @@ i18next
 					// Navbar
 					"navbar-home": "Přejít na domovskou stránku",
 					"navbar-user": "Uživatelská sekce",
-					"navbar-cart": "Košík",
 					"navbar-toggler": "Přepnout menu",
 
 					// Footer
@@ -93,8 +95,12 @@ i18next
 					// Categories
 					"categories-title": "Všechny kategorie",
 
-					// Checkout
-					"checkout-cart": "Košík",
+					// Cart
+					"cart-title": "Košík",
+					"cart-items": "Produkty ({count})",
+					"cart-tax": "Daň",
+					"cart-total": "Celkem",
+					"cart-checkout": "Pokračovat k pokladně",
 
 					// 404
 					"not-found": "Tato stránka nebyla nalezena! 🙁️",

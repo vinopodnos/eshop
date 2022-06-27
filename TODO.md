@@ -2,7 +2,7 @@
     -   [ ] Better title in the hero section
 -   [ ] Product Page
     -   [ ] Add Add to Cart button
--   [ ] Cart Page
+-   [x] Cart Page
 -   [ ] Checkout Section
     -   [ ] Customer information
     -   [ ] Stripe integration

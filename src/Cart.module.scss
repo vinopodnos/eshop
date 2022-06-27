@@ -1,0 +1,163 @@
+@use "./variables.scss" as v;
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3rem;
+	padding-block: 3rem;
+	padding-inline: 1.5rem;
+
+	h1 {
+		margin: 0;
+		font-weight: 600;
+		font-size: 2rem;
+	}
+}
+
+.split {
+	width: 100%;
+	max-width: 70rem;
+	display: grid;
+	gap: 1.5rem;
+	align-items: start;
+
+	@include v.mq-min("small") {
+		grid-template-columns: auto 300px;
+	}
+}
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	.box {
+		padding: 0.8rem;
+		background-color: v.clr("light");
+		border: 1px solid v.clrd("light", 15%);
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		dl {
+			display: grid;
+			gap: 0.5rem;
+			grid-template-columns: repeat(2, auto);
+			margin: 0;
+
+			hr {
+				grid-column-end: span 2;
+				width: 100%;
+				border: none;
+				height: 1px;
+				background-color: v.clrd("light", 15%);
+			}
+
+			dd {
+				margin-inline-start: auto;
+				font-weight: 600;
+			}
+
+			dt:last-of-type {
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+.button {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 0.9em;
+	text-align: center;
+	padding: 0.5rem 1.3rem;
+	border-radius: 5px;
+	color: v.clr("light");
+	background-color: v.clr("primary");
+	transition: background-color 0.2s ease;
+
+	&:hover {
+		background-color: v.clrd("primary", 5%);
+	}
+}
+
+.products {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.product {
+	padding: 0.5rem;
+	background-color: v.clr("light");
+	border: 1px solid v.clrd("light", 15%);
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: auto auto 1fr auto;
+	grid-template-rows: repeat(2, 1fr);
+	align-items: center;
+	gap: 0.2rem;
+
+	* {
+		display: block;
+		margin: 0;
+	}
+
+	img {
+		height: 4.5rem;
+		aspect-ratio: 1;
+		object-fit: contain;
+		border-radius: inherit;
+		grid-row-end: span 2;
+	}
+
+	h2 {
+		grid-column: 2 / -2;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	input {
+		grid-column-start: 2;
+		grid-row-start: 2;
+		border-radius: 5px;
+		border: 1px solid v.clrd("light", 15%);
+		width: 6.5ch;
+	}
+
+	strong {
+		grid-column-start: 3;
+		grid-row-start: 2;
+		font-weight: 400;
+		margin-inline-start: 0.6ch;
+
+		&::before {
+			content: "\00D7";
+			margin-inline-end: 0.5ch;
+			opacity: 0.6;
+		}
+	}
+
+	div {
+		grid-column-start: 2;
+		grid-row-start: 2;
+	}
+
+	button {
+		grid-column-end: -1;
+		grid-row-end: span 2;
+		appearance: none;
+		border: none;
+		background: none;
+		cursor: pointer;
+		opacity: 0.6;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}

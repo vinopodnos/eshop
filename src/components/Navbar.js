@@ -44,7 +44,7 @@ const Navbar = forwardRef(({ id }, ref) => {
 				<Link to="/" title={t("navbar-user")}>
 					<FontAwesomeIcon icon="fa-solid fa-user" />
 				</Link>
-				<Link to="/" title={t("navbar-cart")}>
+				<Link to="/cart" title={t("cart-title")}>
 					<FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
 					{cartQuantity > 0 ? <span>{cartQuantity}</span> : undefined}
 				</Link>

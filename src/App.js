@@ -6,6 +6,7 @@ import Home from "./Home";
 import Categories from "./Categories";
 import Category from "./Category";
 import Product from "./Product";
+import Cart from "./Cart";
 import NotFound from "./NotFound";
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
 							path="/products/:productId"
 							element={<Product />}
 						/>
+						<Route path="/cart" element={<Cart />} />
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</CartProvider>
